@@ -268,6 +268,29 @@
     font-size: 1rem !important;
   }
 }
+@media (max-width: 600px) {
+  .cover-text {
+    /* уменьшаем высоту блока за счёт внутренних отступов */
+    padding: 1rem 1.5rem !important;
+    /* сдвигаем чуть выше (можете подкорректировать по своему вкусу) */
+    transform: translateY(120px) !important;
+  }
+  .cover-text h1 {
+    /* уменьшаем размер заголовка вдвое */
+    font-size: 1.5rem !important;
+    white-space: nowrap;
+  }
+  .cover-text p {
+    /* уменьшаем размер подписи */
+    font-size: 0.9rem !important;
+    margin-top: 0.3rem !important;
+  }
+  .arrow {
+    /* уменьшаем стрелку */
+    font-size: 1rem !important;
+    margin-top: 0.5rem !important;
+  }
+}
 
   </style>
 </head>
