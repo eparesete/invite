@@ -186,121 +186,69 @@
   bottom: 30px; /* сместить вверх на 20px — подправьте по вкусу */
 }
 /* === МЕДИА-ЗАПРОС ДЛЯ ТЕЛЕФОНОВ === */
-@media (max-width: 600px) {
-  .cover-text h1 {
-    /* разрешаем перенос строк */
-    white-space: normal !important;
-    /* чуть поменьше, чтобы вмещалось */
-    font-size: 1.8rem !important;
-    /* немного сузим сам блок, чтобы не было «захода» */
-    max-width: 90%;
-    margin: 0 auto;
-    line-height: 1.2;
+/* -------------------- Мобильная версия -------------------- */
+@media only screen and (max-width: 600px) {
+
+  /* сам фон-оверлей делаем абсолютным и центрируем его */
+  .cover {
+    height: auto;            /* авто-высота для контента */
+    position: relative;      /* чтобы .cover-text абсолютным работал */
   }
   .cover-text {
-    padding: 1rem !important;
-    max-width: 100%;
-    width: 100%;
-    transform: translateY(180px); /* отрегулировать смещение при необходимости */
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;             /* чуть уже экрана */
+    padding: 1rem;           /* поменьше отступов */
+    background: rgba(0,0,0,0.4) !important;
+    box-sizing: border-box;
   }
-  .cover {
-    height: auto;
-    padding-bottom: 2rem;
+  .cover-text h1 {
+    font-size: 6vw !important;   /* масштабируем по ширине экрана */
+    line-height: 1.1 !important;
+    white-space: nowrap !important; /* ни в коем случае не разбивать */
+    margin: 0;
   }
-  /* 1. Сетка — одна колонка, меньше отступы */
+  .cover-text p {
+    font-size: 3.5vw !important; /* уже под h1 */
+    margin: 0.5rem 0 0 !important;
+  }
+  .arrow {
+    font-size: 4vw !important;
+    margin-top: 0.5rem !important;
+  }
+
+  /* карточки в одну колонку */
   .grid {
-    display: grid;
+
     grid-template-columns: 1fr;
     padding: 1rem;
     gap: 1.5rem;
   }
-
-  /* 2. Карточки и текст-блоки — единые отступы */
   .card,
   .white-text-block {
     margin-bottom: 1.5rem;
-    text-align: center;
   }
 
-  /* 3. Заголовки — поменьше */
-  h1 {
-    font-size: 2rem;
-  }
-  h2 {
-    font-size: 1.5rem;
-  }
+  /* размер заголовков чуть меньше на мобильных */
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
 
-  /* 4. Параграфы и белый текст-блок — чуть больше и с нормальным межстрочным */
+  /* тексты в карточках чуть крупнее для удобства чтения */
   .card p,
   .white-text-block {
     font-size: 1.1rem;
     line-height: 1.4;
   }
 
-  /* 5. Картинки — по ширине блока, высота автоматом */
+  /* картинки по ширине карточки, без обрезки */
   .card img {
     width: 100%;
     height: auto;
-    object-fit: contain; /* показывает всю картинку, не обрезая */
+    object-fit: contain;
     max-height: none;
   }
-}
- @media (max-width: 480px) {
-    .cover-text h1 {
-      font-size: 1.6rem !important;
-    }
-  }
-/* Подстройка оверлея под мобильные экраны */
-@media (max-width: 600px) {
-  .cover-text {
-    /* убираем большое смещение и задаем более подходящее */
-    transform: translateY(120px) !important;
-    /* чуть уменьшим паддинги, чтобы выглядело аккуратнее */
-    padding: 1rem 1.5rem !important;
-  }
-  .cover-text h1 {
-    /* уменьшаем размер заголовка */
-    font-size: 2rem !important;
-    white-space: normal; /* разрешаем перенос строки */
-  }
-  .cover-text p {
-    /* уменьшаем размер подзаголовка */
-    font-size: 1rem !important;
-  }
-}
-@media (max-width: 600px) {
-  .cover-text {
-    /* сузим по горизонтали так же, как у основной сетки */
-    width: calc(100% - 2rem) !important;
-    margin: 0 auto !important;
-    /* уменьшаем высоту блока за счёт внутренних отступов */
-    padding: 1rem !important;
-    /* сдвигаем чуть выше (можете подкорректировать по своему вкусу) */
-    transform: translateY(80px) !important;
-  }
-  .cover-text h1 {
-    /* уменьшаем размер заголовка вдвое */
-    font-size: 1.1rem !important;
-    white-space: nowrap;
-  }
-  .cover-text p {
-    /* уменьшаем размер подписи */
-    font-size: 0.7rem !important;
-    margin-top: 0.3rem !important;
-  }
-  .arrow {
-    /* уменьшаем стрелку */
-    font-size: 0.8rem !important;
-    margin-top: 0.5rem !important;
-  }
-}
-@media (max-width: 600px) {
-  /* чтобы заголовок Александра & Любослав не разбивался */
-  .cover-text h1 {
-    white-space: nowrap !important;
-    font-size: 6vw !important;   /* относительно ширины экрана */
-    line-height: 1 !important;
-  }
+
 }
 
   </style>
