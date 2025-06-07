@@ -340,21 +340,34 @@
   <section class="final">
     <p>Мы мечтаем, чтобы в этот день рядом были самые родные и близкие. Очень ждём встречи и ваших тёплых улыбок!</p>
   </section>
-<audio id="bg-music" src="audio/song.mp3" autoplay loop></audio>
+  <!--музыка-->
+<!-- аудио-тег — временно с controls для проверки -->
+<audio id="bg-music" src="audio/song.mp3" loop preload="auto" controls></audio>
+
+<!-- кнопка и скрипт -->
+<button id="play-music">Включить музыку</button>
 <script>
+  document.addEventListener('DOMContentLoaded', () => {
     const btn = document.getElementById('play-music');
     const audio = document.getElementById('bg-music');
 
-    btn.addEventListener('click', () => {
-      if (audio.paused) {
-        audio.play();
-        btn.textContent = 'Выключить музыку';
-      } else {
-        audio.pause();
-        btn.textContent = 'Включить музыку';
+    btn.addEventListener('click', async () => {
+      try {
+        if (audio.paused) {
+          await audio.play();
+          btn.textContent = 'Выключить музыку';
+        } else {
+          audio.pause();
+          btn.textContent = 'Включить музыку';
+        }
+      } catch(err) {
+        console.error('Не удалось воспроизвести аудио:', err);
+        btn.textContent = 'Ошибка воспроизведения';
       }
     });
-  </script>
+  });
+</script>
+
 
 </body>
 </html>
