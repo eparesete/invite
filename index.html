@@ -339,6 +339,15 @@
     <p>Мы мечтаем, чтобы в этот день рядом были самые родные и близкие. Очень ждём встречи и ваших тёплых улыбок!</p>
   </section>
 <audio id="bg-music" src="audio/song.mp3" autoplay loop></audio>
+<script>
+  window.addEventListener('load', () => {
+    const bg = document.getElementById('bg-music');
+    bg.volume = 0.5;               // регулируем громкость от 0.0 до 1.0
+    bg.play().catch(()=>{ 
+      /* если автозапуск заблокирован, можно показать кнопку Play */ 
+    });
+  });
+</script>
 
 </body>
 </html>
