@@ -186,67 +186,60 @@
   bottom: 30px; /* сместить вверх на 20px — подправьте по вкусу */
 }
 /* === МЕДИА-ЗАПРОС ДЛЯ ТЕЛЕФОНОВ === */
-/* -------------------- Мобильная версия -------------------- */
+/* ——— Отредактированная мобильная секция ——— */
 @media only screen and (max-width: 600px) {
-
-  /* сам фон-оверлей делаем абсолютным и центрируем его */
+  /* фон-обложка подстраивается по высоте контента */
   .cover {
-    height: auto;            /* авто-высота для контента */
-    position: relative;      /* чтобы .cover-text абсолютным работал */
+    height: auto !important;
+    padding-bottom: 2rem;
   }
+
+  /* оверлей с текстом */
   .cover-text {
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 90vw;             /* чуть уже экрана */
-    padding: 1rem;           /* поменьше отступов */
+    position: relative !important;
+    transform: translateY(180px) !important;   /* регулируй, чтобы опустить/поднять */
+    width: calc(100% - 2rem) !important;        /* отступы по бокам */
+    margin: 0 auto !important;
+    padding: 1rem !important;                   /* компактные отступы */
     background: rgba(0,0,0,0.4) !important;
     box-sizing: border-box;
   }
   .cover-text h1 {
-    font-size: 6vw !important;   /* масштабируем по ширине экрана */
+    font-size: 1.6rem !important;    /* поменьше, чтобы влезло в одну строку */
     line-height: 1.1 !important;
-    white-space: nowrap !important; /* ни в коем случае не разбивать */
+    white-space: nowrap !important;  /* не переносить */
     margin: 0;
   }
   .cover-text p {
-    font-size: 3.5vw !important; /* уже под h1 */
-    margin: 0.5rem 0 0 !important;
+    font-size: 1rem !important;
+    margin-top: 0.5rem !important;
   }
   .arrow {
-    font-size: 4vw !important;
+    font-size: 1.2rem !important;
     margin-top: 0.5rem !important;
   }
 
-  /* карточки в одну колонку */
+  /* переводим сетку в одну колонку */
   .grid {
-
-    grid-template-columns: 1fr;
-    padding: 1rem;
-    gap: 1.5rem;
-  }
-  .card,
-  .white-text-block {
-    margin-bottom: 1.5rem;
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.5rem !important;
+    padding: 1rem !important;
   }
 
-  /* размер заголовков чуть меньше на мобильных */
-  h1 { font-size: 2rem; }
-  h2 { font-size: 1.5rem; }
-
-  /* тексты в карточках чуть крупнее для удобства чтения */
+  /* текст внутри карточек */
   .card p,
   .white-text-block {
-    font-size: 1.1rem;
-    line-height: 1.4;
+    font-size: 1.1rem !important;
+    line-height: 1.4 !important;
   }
 
-  /* картинки по ширине карточки, без обрезки */
+  /* картинки по ширине блока */
   .card img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    max-height: none;
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+    max-height: none !important;
   }
 
 }
