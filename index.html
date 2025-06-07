@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Александра & Любослав</title>
+
+  <style>
+    /* Шрифты */
+    @font-face {
+      font-family: 'Miama Nueva';
+      src: url('fonts/MiamaNueva.ttf') format('truetype');
+    }
+    @font-face {
+      font-family: 'Southern';
+      src: url('fonts/Southern.ttf') format('truetype');
+    }
+
+    /* Общие стили */
+    body {
+      margin: 0;
+      background-color: #1E1E1E;
+      font-family: 'Southern', serif;
+      color: white;
+    }
+    h1 {
+      font-family: 'Miama Nueva', cursive;
+      font-size: 3rem;
+      margin: 0;
+      text-align: center;
+    }
+    h2 {
+      font-family: 'Miama Nueva', cursive;
+      font-size: 2rem;
+      margin: 0 0 1rem;
+      text-align: center;
+    }
+
+    /* Обложка */
+    .cover {
+      background: url('images/cover.jpg') no-repeat center center/cover;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    .cover-text {
+      background: rgba(0,0,0,0.4);
+      padding: 2rem 3rem;
+      max-width: none;
+      width: 100%;
+    }
+    .cover-text h1 {
+      white-space: nowrap;
+    }
+    .arrow {
+      font-size: 1.5rem;
+      margin-top: 1rem;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%,100% {transform:translateY(0);}
+      50%   {transform:translateY(8px);}
+    }
+
+    /* Сетка 2-колонки */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: start;
+      max-width: 842px;
+      margin: 0 auto;
+      padding: 3rem 1rem;
+      gap: 2rem;
+    }
+
+    /* Карточки */
+    .card {
+      background-color: white;
+      color: #1E1E1E;
+      padding: 1.5rem;
+      border-radius: 20px;
+      text-align: center;
+    }
+    .card img {
+      width: 100%;
+      max-height: 320px;
+      object-fit: cover;
+      border-radius: 20px;
+      margin-top: 1rem;
+    }
+
+    /* Текст справа под блоком */
+    .white-text-block {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    /* Цветовые кружки */
+    .colors {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 0.5rem;
+      margin-bottom: 0;
+    }
+    .circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid #999;
+    }
+
+    /* Компактная карточка DRESS CODE */
+    .compact-card {
+      padding: 1rem 1.2rem;
+    }
+    .compact-card p {
+      margin-bottom: 0.5rem;
+    }
+
+    /* Финальный блок */
+    .final {
+      background: url('images/final.jpg') no-repeat center center/cover;
+      height: 60vh;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+      text-align: center;
+    }
+    .final p {
+      background-color: rgba(0,0,0,0.6);
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+      color: white;
+    }
+
+    
+      .white-text-block {
+        font-size: 1.3rem;
+      }
+      .card img {
+        max-height: none;
+      }
+    
+    .card.location-card {
+  margin-top: -350px;/* поднимет на 20px, можно скорректировать */
+}
+.cover-text {
+  transform: translateY(250px) !important;
+}
+.final {
+  background: url('images/final.jpg') no-repeat center center;
+  /* вместо cover используем чуть уменьшенный масштаб */
+  background-size: 100% auto; 
+  height: 60vh;
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  text-align: center;
+}
+
+.final p {
+  background-color: rgba(0,0,0,0.6);
+  /* padding можно подправить по вкусу */
+  padding: 1rem 2rem;
+  margin: 0;              /* сбросим внешние отступы */
+  font-size: 1.8rem;      /* чуть больше текста */
+  width: 100%;            /* растягиваем на всю ширину родителя */
+  max-width: none;        /* убираем любые ограничения ширины */
+  box-sizing: border-box; /* чтобы padding учитывался в ширине */
+}
+.final p {
+  /* Уменьшаем отступ снизу, если нужен */
+  margin-bottom: 1rem !important;
+  /* Смещаем весь блок вверх */
+  position: relative;
+  bottom: 30px; /* сместить вверх на 20px — подправьте по вкусу */
+}
+/* === МЕДИА-ЗАПРОС ДЛЯ ТЕЛЕФОНОВ === */
+@media (max-width: 600px) {
+  /* 1. Сетка — одна колонка, меньше отступы */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  /* 2. Карточки и текст-блоки — единые отступы */
+  .card,
+  .white-text-block {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  /* 3. Заголовки — поменьше */
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  /* 4. Параграфы и белый текст-блок — чуть больше и с нормальным межстрочным */
+  .card p,
+  .white-text-block {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  /* 5. Картинки — по ширине блока, высота автоматом */
+  .card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* показывает всю картинку, не обрезая */
+    max-height: none;
+  }
+}
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Обложка -->
+  <section class="cover">
+    <div class="cover-text">
+      <h1>АЛЕКСАНДРА & ЛЮБОСЛАВ</h1>
+      <p>25 июля 2025</p>
+      <div class="arrow">↓</div>
+    </div>
+  </section>
+
+  <!-- Контент -->
+  <section class="grid">
+
+    <!-- 1: ДОРОГИЕ И ЛЮБИМЫЕ -->
+    <div class="card">
+      <h2>ДОРОГИЕ И ЛЮБИМЫЕ!</h2>
+      <p style="font-size:1.3rem; line-height:1.6; text-align:center; margin-top:-10px;">
+        Мы рады разделить с вами этот особенный день. Приглашаем вас на нашу свадьбу, чтобы отпраздновать любовь, радость и жизнь вместе.
+      </p>
+      <img src="images/love1.jpg" alt="Фото пары" style="max-height:280px;">
+    </div>
+
+    <!-- 2: ТЕКСТ СПРАВА -->
+    <div class="white-text-block">
+      МЫ ПРИГОТОВИЛИ ДЛЯ ВАС ВЕЧЕР, ПОЛНЫЙ ТЕПЛА, МУЗЫКИ, ВКУСНОЙ ЕДЫ И КРАСИВЫХ МОМЕНТОВ.
+    </div>
+
+    <!-- 3: DRESS CODE -->
+    <div class="card compact-card">
+      <h2>ДРЕСС-КОД</h2>
+      <p>Будем очень признательны, если вы поддержите цветовую гамму нашей свадьбы</p>
+      <div class="colors">
+        <div class="circle" style="background-color:#A9B59C;"></div>
+        <div class="circle" style="background-color:#E5C7C5;"></div>
+        <div class="circle" style="background-color:#F3E2C7;"></div>
+        <div class="circle" style="background-color:#B9A188;"></div>
+      </div>
+    </div>
+
+    <!-- 4: ЛОКАЦИЯ -->
+    <div class="card location-card">
+      <h2>ЛОКАЦИЯ</h2>
+      <p>
+        Проспект им. газеты Красноярский Рабочий, 160е<br>
+        Банкетные залы «Урфин Джюс и Holiday»<br>
+        Сбор гостей: 18:00
+      </p>
+      <img src="images/location.jpg" alt="Локация">
+    </div>
+
+    <!-- 5: СЮРПРИЗ -->
+    <div class="card">
+      <p>
+        Хотите удивить нас в этот день?<br>
+        Мы обожаем сюрпризы — особенно, когда они хорошо спланированы!<br><br>
+        Свяжитесь с нашей чудесной ведущей Ольгой:<br>
+        📞 8 (902) 923-02-76
+      </p>
+    </div>
+
+    <!-- 6: ДЕТАЛИ -->
+    <div class="card">
+      <h2>ДЕТАЛИ</h2>
+      <p>
+        Главное для нас — ваше присутствие в этот день.<br>
+        Если вы захотите нас порадовать подарком, мы будем признательны за вклад в наш семейный бюджет.
+      </p>
+      <img src="images/details.jpg" alt="Детали">
+    </div>
+
+  </section>
+
+  <!-- Финал -->
+  <section class="final">
+    <p>Мы мечтаем, чтобы в этот день рядом были самые родные и близкие. Очень ждём встречи и ваших тёплых улыбок!</p>
+  </section>
+
+</body>
+</html>
