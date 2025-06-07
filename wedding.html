@@ -143,18 +143,14 @@
       color: white;
     }
 
-    /* Адаптив */
-    @media (max-width: 768px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
+    
       .white-text-block {
         font-size: 1.3rem;
       }
       .card img {
         max-height: none;
       }
-    }
+    
     .card.location-card {
   margin-top: -350px;/* поднимет на 20px, можно скорректировать */
 }
@@ -189,6 +185,47 @@
   position: relative;
   bottom: 30px; /* сместить вверх на 20px — подправьте по вкусу */
 }
+/* === МЕДИА-ЗАПРОС ДЛЯ ТЕЛЕФОНОВ === */
+@media (max-width: 600px) {
+  /* 1. Сетка — одна колонка, меньше отступы */
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
+  }
+
+  /* 2. Карточки и текст-блоки — единые отступы */
+  .card,
+  .white-text-block {
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  /* 3. Заголовки — поменьше */
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  /* 4. Параграфы и белый текст-блок — чуть больше и с нормальным межстрочным */
+  .card p,
+  .white-text-block {
+    font-size: 1.1rem;
+    line-height: 1.4;
+  }
+
+  /* 5. Картинки — по ширине блока, высота автоматом */
+  .card img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* показывает всю картинку, не обрезая */
+    max-height: none;
+  }
+}
+
 
   </style>
 </head>
