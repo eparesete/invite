@@ -46,6 +46,7 @@
 
     /* ---------------- Обложка -------------- */
     .cover {
+      overflow: hidden;
       background: url('images/cover.jpg') no-repeat center center/cover;
       height: 100vh;
       display: flex;
@@ -55,12 +56,17 @@
       position: relative;
     }
     .cover-text {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
       background: rgba(0,0,0,0.4);
       padding: 2rem 3rem;
       width: 100%;
       max-width: 842px;
+      margin: 0 auto;
       box-sizing: border-box;
-      transform: translateY(250px);
+      transform: translateY(-50%);
     }
     .arrow {
       font-size: 1.5rem;
