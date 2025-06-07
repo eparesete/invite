@@ -231,7 +231,7 @@
   .card p,
   .white-text-block {
     font-size: 1.1rem !important;
-    line-height: 1.1 !important;
+    line-height: 1.9 !important;
   }
 
   /* картинки по ширине блока */
@@ -241,7 +241,22 @@
     object-fit: contain !important;
     max-height: none !important;
   }
+/* 1) Увеличиваем видимую область обложки */
+.cover {
+  min-height: calc(100vh + 60px) !important;
+  background-position: center bottom !important;
+  padding-bottom: 0 !important;
+}
 
+/* 2) Сдвигаем всю сетку вниз, чтобы под оверлеем было пространство */
+.grid {
+  margin-top: 1.5rem !important;
+}
+
+/* 3) Убеждаемся, что Dress Code остаётся виден */
+.card.compact-card {
+  display: block !important;
+}
 }
 
   </style>
