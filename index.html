@@ -171,22 +171,30 @@
         padding-bottom: 2rem;
       }
       .cover-text {
-        transform: translateY(100px) !important;
-        width: calc(100% - 2rem) !important;
-        margin: 0 auto;
-        padding: 1rem !important;
+          position: relative !important;
+  width: 100% !important;          /* во всю ширину экрана */
+  max-width: none !important;
+  padding: 0.5rem 1rem !important;  /* более «плоские» паддинги сверху/снизу */
+  background: rgba(0,0,0,0.4) !important;
+  box-sizing: border-box;
+  transform: translateY(80px) !important; /* поднимите/опустите по вкусу */
+  /* дополнительное ограничение высоты оверлея, если нужно */
+  max-height: 4rem !important;
+  overflow: hidden !important;
       }
       .cover-text h1 {
-        font-size: 1.1rem !important;
-        line-height: 1.2 !important;
-        white-space: nowrap;
+        font-size: 1.2rem !important;
+        line-height: 1 !important;
+        white-space: nowrap !important;
+        margin: 0;
       }
       .cover-text p {
-        font-size: 1rem !important;
-        margin-top: 0.5rem;
+        font-size: 0.9rem !important;
+        margin-top: 0.3rem;
       }
       .arrow {
-        font-size: 1.2rem !important;
+        font-size: 1.1rem !important;
+        margin-top: 0.3rem !important;
       }
       .grid {
         grid-template-columns: 1fr !important;
