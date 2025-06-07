@@ -6,7 +6,7 @@
   <title>Александра & Любослав</title>
 
   <style>
-    /* Шрифты */
+    /* ---------------- Шрифты ---------------- */
     @font-face {
       font-family: 'Miama Nueva';
       src: url('fonts/MiamaNueva.ttf') format('truetype');
@@ -16,27 +16,35 @@
       src: url('fonts/Southern.ttf') format('truetype');
     }
 
-    /* Общие стили */
+    /* -------------- Общие стили ------------- */
     body {
       margin: 0;
       background-color: #1E1E1E;
       font-family: 'Southern', serif;
       color: white;
     }
+    h1, h2, p {
+      margin: 0;
+      padding: 0;
+    }
     h1 {
       font-family: 'Miama Nueva', cursive;
       font-size: 3rem;
-      margin: 0;
       text-align: center;
+      white-space: nowrap;
     }
     h2 {
       font-family: 'Miama Nueva', cursive;
       font-size: 2rem;
-      margin: 0 0 1rem;
       text-align: center;
+      margin-bottom: 1rem;
+    }
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
     }
 
-    /* Обложка */
+    /* ---------------- Обложка -------------- */
     .cover {
       background: url('images/cover.jpg') no-repeat center center/cover;
       height: 100vh;
@@ -44,15 +52,15 @@
       align-items: center;
       justify-content: center;
       text-align: center;
+      position: relative;
     }
     .cover-text {
       background: rgba(0,0,0,0.4);
       padding: 2rem 3rem;
-      max-width: none;
       width: 100%;
-    }
-    .cover-text h1 {
-      white-space: nowrap;
+      max-width: 842px;
+      box-sizing: border-box;
+      transform: translateY(250px);
     }
     .arrow {
       font-size: 1.5rem;
@@ -60,28 +68,29 @@
       animation: bounce 2s infinite;
     }
     @keyframes bounce {
-      0%,100% {transform:translateY(0);}
-      50%   {transform:translateY(8px);}
+      0%,100% { transform: translateY(0); }
+      50%    { transform: translateY(8px); }
     }
 
-    /* Сетка 2-колонки */
+    /* ---------------- Сетка ---------------- */
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      align-items: start;
+      gap: 2rem;
       max-width: 842px;
       margin: 0 auto;
       padding: 3rem 1rem;
-      gap: 2rem;
+      align-items: start;
     }
 
-    /* Карточки */
+    /* --------------- Карточки ------------- */
     .card {
-      background-color: white;
+      background-color: #fff;
       color: #1E1E1E;
       padding: 1.5rem;
       border-radius: 20px;
       text-align: center;
+      box-sizing: border-box;
     }
     .card img {
       width: 100%;
@@ -90,26 +99,15 @@
       border-radius: 20px;
       margin-top: 1rem;
     }
-
-    /* Текст справа под блоком */
-    .white-text-block {
-      font-size: 1.6rem;
-      line-height: 1.8;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 2rem;
+    .compact-card {
+      padding: 1rem 1.2rem;
     }
-
-    /* Цветовые кружки */
+  
     .colors {
       display: flex;
       justify-content: center;
       gap: 1rem;
       margin-top: 0.5rem;
-      margin-bottom: 0;
     }
     .circle {
       width: 40px;
@@ -118,149 +116,101 @@
       border: 1px solid #999;
     }
 
-    /* Компактная карточка DRESS CODE */
-    .compact-card {
-      padding: 1rem 1.2rem;
-    }
-    .compact-card p {
-      margin-bottom: 0.5rem;
+    /* ------------ Белый текст ------------ */
+    .white-text-block {
+      font-size: 1.6rem;
+      line-height: 1.8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 2rem;
+      color: white;
     }
 
-    /* Финальный блок */
+    /* ------------- Финал --------------- */
     .final {
       background: url('images/final.jpg') no-repeat center center/cover;
       height: 60vh;
       display: flex;
-      align-items: end;
+      align-items: flex-end;
       justify-content: center;
       text-align: center;
     }
     .final p {
-      background-color: rgba(0,0,0,0.6);
+      background: rgba(0,0,0,0.6);
       padding: 1rem 2rem;
-      font-size: 1.2rem;
       margin-bottom: 3rem;
+      font-size: 1.2rem;
       color: white;
+      width: 100%;
+      max-width: 842px;
+      box-sizing: border-box;
+      position: relative;
+      bottom: 30px;
     }
 
-    
+    /* ------------- Кнопка ------------ */
+    #play-music {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      padding: 0.5rem 1rem;
+      background: rgba(0,0,0,0.6);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    /* ======= МЕДИА-ЗАПРОС ДЛЯ ТЕЛЕФОНОВ ======= */
+    @media only screen and (max-width: 600px) {
+      .cover {
+        height: auto;
+        padding-bottom: 2rem;
+      }
+      .cover-text {
+        transform: translateY(100px) !important;
+        width: calc(100% - 2rem) !important;
+        margin: 0 auto;
+        padding: 1rem !important;
+      }
+      .cover-text h1 {
+        font-size: 1.1rem !important;
+        line-height: 1.2 !important;
+        white-space: nowrap;
+      }
+      .cover-text p {
+        font-size: 1rem !important;
+        margin-top: 0.5rem;
+      }
+      .arrow {
+        font-size: 1.2rem !important;
+      }
+      .grid {
+        grid-template-columns: 1fr !important;
+        padding: 1rem !important;
+        gap: 1.5rem !important;
+        margin-top: 1.5rem;
+      }
+      .card p,
       .white-text-block {
-        font-size: 1.3rem;
+        font-size: 1.1rem !important;
+        line-height: 1.5 !important;
       }
       .card img {
-        max-height: none;
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
       }
-    
-    .card.location-card {
-  margin-top: -350px;/* поднимет на 20px, можно скорректировать */
-}
-.cover-text {
-  transform: translateY(250px) !important;
-}
-.final {
-  background: url('images/final.jpg') no-repeat center center;
-  /* вместо cover используем чуть уменьшенный масштаб */
-  background-size: 100% auto; 
-  height: 60vh;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  text-align: center;
-}
-
-.final p {
-  background-color: rgba(0,0,0,0.6);
-  /* padding можно подправить по вкусу */
-  padding: 1rem 2rem;
-  margin: 0;              /* сбросим внешние отступы */
-  font-size: 1.8rem;      /* чуть больше текста */
-  width: 100%;            /* растягиваем на всю ширину родителя */
-  max-width: none;        /* убираем любые ограничения ширины */
-  box-sizing: border-box; /* чтобы padding учитывался в ширине */
-}
-.final p {
-  /* Уменьшаем отступ снизу, если нужен */
-  margin-bottom: 1rem !important;
-  /* Смещаем весь блок вверх */
-  position: relative;
-  bottom: 30px; /* сместить вверх на 20px — подправьте по вкусу */
-}
-/* === МЕДИА-ЗАПРОС ДЛЯ ТЕЛЕФОНОВ === */
-/* ——— Отредактированная мобильная секция ——— */
-@media only screen and (max-width: 600px) {
-  /* фон-обложка подстраивается по высоте контента */
-  .cover {
-    height: auto !important;
-    padding-bottom: 2rem;
-  }
-
-  /* оверлей с текстом */
-  .cover-text {
-    position: relative !important;
-    transform: translateY(100px) !important;   /* регулируй, чтобы опустить/поднять */
-    width: calc(100% - 2rem) !important;        /* отступы по бокам */
-    margin: 0 auto !important;
-    padding: 1rem !important;                   /* компактные отступы */
-    background: rgba(0,0,0,0.4) !important;
-    box-sizing: border-box;
-  }
-  .cover-text h1 {
-    font-size: 1.1rem !important;    /* поменьше, чтобы влезло в одну строку */
-    line-height: 1.1 !important;
-    white-space: nowrap !important;  /* не переносить */
-    margin: 0;
-  }
-  .cover-text p {
-    font-size: 1rem !important;
-    margin-top: 0.5rem !important;
-  }
-  .arrow {
-    font-size: 1.2rem !important;
-    margin-top: 0.5rem !important;
-  }
-
-  /* переводим сетку в одну колонку */
-  .grid {
-    display: grid !important;
-    grid-template-columns: 1fr !important;
-    gap: 1.5rem !important;
-    padding: 1rem !important;
-  }
-
-  /* текст внутри карточек */
-  .card p,
-  .white-text-block {
-    font-size: 1.1rem !important;
-    line-height: 1.9 !important;
-  }
-
-  /* картинки по ширине блока */
-  .card img {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-    max-height: none !important;
-  }
-/* 1) Увеличиваем видимую область обложки */
-.cover {
-  min-height: calc(100vh + 60px) !important;
-  background-position: center bottom !important;
-  padding-bottom: 0 !important;
-}
-
-/* 2) Сдвигаем всю сетку вниз, чтобы под оверлеем было пространство */
-.grid {
-  margin-top: 1.5rem !important;
-}
-
-/* 3) Убеждаемся, что Dress Code остаётся виден */
-.card.compact-card {
-  display: block !important;
-}
-}
-
+      .card.compact-card {
+        display: block !important;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- Обложка -->
@@ -271,19 +221,17 @@
       <div class="arrow">↓</div>
     </div>
   </section>
-<button id="play-music">Включить музыку</button>
-    </div>
-  </section>
+
   <!-- Контент -->
   <section class="grid">
 
     <!-- 1: ДОРОГИЕ И ЛЮБИМЫЕ -->
     <div class="card">
       <h2>ДОРОГИЕ И ЛЮБИМЫЕ!</h2>
-      <p style="font-size:1.3rem; line-height:1.6; text-align:center; margin-top:-10px;">
+      <p style="font-size:1.3rem; line-height:1.6; margin-top:-10px;">
         Мы рады разделить с вами этот особенный день. Приглашаем вас на нашу свадьбу, чтобы отпраздновать любовь, радость и жизнь вместе.
       </p>
-      <img src="images/love1.jpg" alt="Фото пары" style="max-height:280px;">
+      <img src="images/love1.jpg" alt="Фото пары">
     </div>
 
     <!-- 2: ТЕКСТ СПРАВА -->
@@ -340,18 +288,15 @@
   <section class="final">
     <p>Мы мечтаем, чтобы в этот день рядом были самые родные и близкие. Очень ждём встречи и ваших тёплых улыбок!</p>
   </section>
-  <!--музыка-->
-<!-- аудио-тег — временно с controls для проверки -->
-<audio id="bg-music" src="audio/song.mp3" loop preload="auto"></audio>
 
-<!-- кнопка и скрипт -->
-<button id="play-music">Включить музыку</button>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const btn = document.getElementById('play-music');
-    const audio = document.getElementById('bg-music');
+  <!-- АУДИО + КНОПКА -->
+  <audio id="bg-music" src="audio/song.mp3" loop preload="auto"></audio>
+  <button id="play-music">Включить музыку</button>
 
-    btn.addEventListener('click', async () => {
+  <script>
+    document.getElementById('play-music').addEventListener('click', async () => {
+      const audio = document.getElementById('bg-music');
+      const btn   = document.getElementById('play-music');
       try {
         if (audio.paused) {
           await audio.play();
@@ -361,13 +306,10 @@
           btn.textContent = 'Включить музыку';
         }
       } catch(err) {
-        console.error('Не удалось воспроизвести аудио:', err);
+        console.error('Ошибка воспроизведения:', err);
         btn.textContent = 'Ошибка воспроизведения';
       }
     });
-  });
-</script>
-
-
+  </script>
 </body>
 </html>
