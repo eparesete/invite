@@ -187,6 +187,26 @@
 }
 /* === МЕДИА-ЗАПРОС ДЛЯ ТЕЛЕФОНОВ === */
 @media (max-width: 600px) {
+  .cover-text h1 {
+    /* разрешаем перенос строк */
+    white-space: normal !important;
+    /* чуть поменьше, чтобы вмещалось */
+    font-size: 1.8rem !important;
+    /* немного сузим сам блок, чтобы не было «захода» */
+    max-width: 90%;
+    margin: 0 auto;
+    line-height: 1.2;
+  }
+  .cover-text {
+    padding: 1rem !important;
+    max-width: 100%;
+    width: 100%;
+    transform: translateY(180px) !important; /* отрегулировать смещение при необходимости */
+  }
+  .cover {
+    height: auto;
+    padding-bottom: 2rem;
+  }
   /* 1. Сетка — одна колонка, меньше отступы */
   .grid {
     display: grid;
@@ -225,7 +245,11 @@
     max-height: none;
   }
 }
-
+ @media (max-width: 480px) {
+    .cover-text h1 {
+      font-size: 1.6rem !important;
+    }
+  }
 
   </style>
 </head>
