@@ -342,14 +342,19 @@
   </section>
 <audio id="bg-music" src="audio/song.mp3" autoplay loop></audio>
 <script>
-  window.addEventListener('load', () => {
-    const bg = document.getElementById('bg-music');
-    bg.volume = 0.5;               // регулируем громкость от 0.0 до 1.0
-    bg.play().catch(()=>{ 
-      /* если автозапуск заблокирован, можно показать кнопку Play */ 
+    const btn = document.getElementById('play-music');
+    const audio = document.getElementById('bg-music');
+
+    btn.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play();
+        btn.textContent = 'Выключить музыку';
+      } else {
+        audio.pause();
+        btn.textContent = 'Включить музыку';
+      }
     });
-  });
-</script>
+  </script>
 
 </body>
 </html>
