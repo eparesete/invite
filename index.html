@@ -201,7 +201,7 @@
     padding: 1rem !important;
     max-width: 100%;
     width: 100%;
-    transform: translateY(180px) !important; /* отрегулировать смещение при необходимости */
+    transform: translateY(180px); /* отрегулировать смещение при необходимости */
   }
   .cover {
     height: auto;
@@ -250,6 +250,24 @@
       font-size: 1.6rem !important;
     }
   }
+/* Подстройка оверлея под мобильные экраны */
+@media (max-width: 600px) {
+  .cover-text {
+    /* убираем большое смещение и задаем более подходящее */
+    transform: translateY(120px) !important;
+    /* чуть уменьшим паддинги, чтобы выглядело аккуратнее */
+    padding: 1rem 1.5rem !important;
+  }
+  .cover-text h1 {
+    /* уменьшаем размер заголовка */
+    font-size: 2rem !important;
+    white-space: normal; /* разрешаем перенос строки */
+  }
+  .cover-text p {
+    /* уменьшаем размер подзаголовка */
+    font-size: 1rem !important;
+  }
+}
 
   </style>
 </head>
