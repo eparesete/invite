@@ -270,8 +270,11 @@
 }
 @media (max-width: 600px) {
   .cover-text {
+    /* сузим по горизонтали так же, как у основной сетки */
+    width: calc(100% - 2rem) !important;
+    margin: 0 auto !important;
     /* уменьшаем высоту блока за счёт внутренних отступов */
-    padding: 1rem 1.5rem !important;
+    padding: 1rem !important;
     /* сдвигаем чуть выше (можете подкорректировать по своему вкусу) */
     transform: translateY(120px) !important;
   }
