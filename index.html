@@ -228,7 +228,20 @@
     object-fit: cover !important;
     border-radius: 20px !important;
   }
+/* Скрываем блоки по умолчанию */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 
+    opacity 0.6s ease-out,
+    transform 0.6s ease-out;
+}
 
+/* Когда блок «входит» в экран — показываем */
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
     }
   </style>
 </head>
@@ -248,7 +261,7 @@
   <section class="grid">
 
     <!-- 1: ДОРОГИЕ И ЛЮБИМЫЕ -->
-    <div class="card">
+    <div class="card reveal">
       <h2>ДОРОГИЕ И ЛЮБИМЫЕ!</h2>
       <p style="font-size:1.3rem; line-height:1.6; margin-top:-10px;">
         Мы рады разделить с вами этот особенный день. Приглашаем вас на нашу свадьбу, чтобы отпраздновать любовь, радость и жизнь вместе.
@@ -257,12 +270,12 @@
     </div>
 
     <!-- 2: ТЕКСТ СПРАВА -->
-    <div class="white-text-block">
+    <div class="white-text-block reveal">
       МЫ ПРИГОТОВИЛИ ДЛЯ ВАС ВЕЧЕР, ПОЛНЫЙ ТЕПЛА, МУЗЫКИ, ВКУСНОЙ ЕДЫ И КРАСИВЫХ МОМЕНТОВ.
     </div>
 
     <!-- 3: DRESS CODE -->
-    <div class="card compact-card">
+    <div class="card compact-card reveal">
       <h2>ДРЕСС-КОД</h2>
       <p>Будем очень признательны, если вы поддержите цветовую гамму нашей свадьбы</p>
       <div class="colors">
@@ -274,7 +287,7 @@
     </div>
 
     <!-- 4: ЛОКАЦИЯ -->
-    <div class="card location-card">
+    <div class="card location-card reveal">
       <h2>ЛОКАЦИЯ</h2>
       <p>
         Проспект им. газеты Красноярский Рабочий, 160е<br>
@@ -285,7 +298,7 @@
     </div>
 
     <!-- 5: СЮРПРИЗ -->
-    <div class="card">
+    <div class="card reveal">
       <p>
         Хотите удивить нас в этот день?<br>
         Мы обожаем сюрпризы — особенно, когда они хорошо спланированы!<br><br>
@@ -295,7 +308,7 @@
     </div>
 
     <!-- 6: ДЕТАЛИ -->
-    <div class="card">
+    <div class="card reveal">
       <h2>ДЕТАЛИ</h2>
       <p>
         Главное для нас — ваше присутствие в этот день.<br>
@@ -333,5 +346,22 @@
       }
     });
   </script>
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const elems = document.querySelectorAll('.reveal');
+    const obs = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.1  /* от 0 до 1 — сколько блока должно быть в зоне видимости, чтобы «проявление» сработало */
+    });
+
+    elems.forEach(el => obs.observe(el));
+  });
+</script>
 </body>
 </html>
